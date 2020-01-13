@@ -14,8 +14,24 @@ cache:
 
 script: "./gradlew clean build"
 
-# Alerm via mail when complete CI process
+before_deploy:
+  - zip -r freelec-springboot2-webservice *
+  - mkdir -p deploy
+  - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # value in Travis repo setting
+    secret_access_key: $AWS_SECRET_KEY # value in Travis repo settings
+    bucket: freelec-springboot-build # S3 bucket
+    region: ca-central-1
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
+# Alarm via mail when complete CI process
 notifications:
   email:
     recipients:
-      - hyewon.dev@gmail.comg
+      - hyewon.dev@gmail.com
