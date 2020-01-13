@@ -23,7 +23,7 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # value in Travis repo setting
     secret_access_key: $AWS_SECRET_KEY # value in Travis repo settings
-    bucket: freelec-springboot-build # S3 bucket
+    bucket: freelec-springboot-build2 # S3 bucket
     region: ca-central-1
     skip_cleanup: true
     acl: private
