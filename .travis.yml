@@ -30,6 +30,18 @@ deploy:
     local_dir: deploy
     wait-until-deployed: true
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # value in Travis repo setting
+    secret_access_key: $AWS_SECRET_KEY # value in Travis repo setting
+    bucket: freelec-springboot-build2 # S3 bucket
+    key: freelec-springboot2-webservice.zip
+    bundle_type: zip
+    application: freelec-springboot2-webservice
+    deployment_group: freelec-springboot2-webservice-group
+    region: ca-central-1
+    wait-until-deployed: true
+
+
 # Alarm via mail when complete CI process
 notifications:
   email:
