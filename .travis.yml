@@ -41,7 +41,6 @@ deploy:
     region: ca-central-1
     wait-until-deployed: true
 
-
 # Alarm via mail when complete CI process
 notifications:
   email:
