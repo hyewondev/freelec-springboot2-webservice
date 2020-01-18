@@ -14,4 +14,4 @@ else
   echo "> kill -15 $IDLE_PID"
   kill -15 ${IDLE_PID}
   SLEEP 5
-FI
+fi
