@@ -27,7 +27,6 @@ IDLE_PROFILE=$(find_idle_profile)
 
 echo "> $JAR_NAME running via profile=$IDLE_PROFILE"
 nohup java -jar \
-    -Dspring.config.location=classpath:/application.properties,classpath:/application-$IDLE_PROFILE.properties,/
-    home/ec2-user/app/application-oauth.properties,/homeec2-user/app/application-real-db.properties \
+    -Dspring.config.location=classpath:/application.properties,classpath:/application-$IDLE_PROFILE.properties,/home/ec2-user/app/application-oauth.properties,/homeec2-user/app/application-real-db.properties \
     -Dspring.profiles.active=$IDLE_PROFILE \
     $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
